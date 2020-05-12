@@ -7,6 +7,9 @@ import java.util.Optional;
 
 public class ControllerUtils {
 
+    public static final String USER = "user";
+    public static final String ERROR = "error";
+
     private static String missingAttrMessage(String name) {
         return "Missing attribute: " + name;
     }

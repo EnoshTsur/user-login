@@ -8,7 +8,7 @@
 
     <h1 th:text="${error}">Sign In</h1>
 
-    <form method="post">
+    <form method="post" action="/user/signinHandler">
         <input type="email" placeholder="Email" name="email">
         <input type="password" placeholder="Password" name="password">
         <button type="submit">Submit</button>
