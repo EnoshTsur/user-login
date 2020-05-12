@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+</head>
+<body>
+
+    <h1 th:text="${error}">Sign Up</h1>
+
+    <form method="post">
+        <input type="text" placeholder="First Name" name="fname">
+        <input type="text" placeholder="Last Name" name="lname">
+        <input type="email" placeholder="Email" name="email">
+        <input type="password" placeholder="Password" name="password">
+        <br>
+        <input type="text" placeholder="City" name="city">
+        <input type="text" placeholder="Street" name="street">
+        <input type="number" min="1" placeholder="Number" name="number">
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
