@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public class ControllerUtils {
 
-    public static String missingAttrMessage(String name) {
+    private static String missingAttrMessage(String name) {
         return "Missing attribute: " + name;
     }
 
@@ -19,4 +19,9 @@ public class ControllerUtils {
                         missingAttrMessage(name)
                 ));
     }
+    // input value: enosh@gmail.com
+
+    // input vlaue.equals("")
+
+    // Missing attribute: email
 }
