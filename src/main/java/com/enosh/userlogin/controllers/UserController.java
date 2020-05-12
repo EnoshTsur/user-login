@@ -19,7 +19,6 @@ public class UserController {
 
     private final UserDao userDao;
 
-    private final String REDIRECT_TO_INDEX = "redirect:/user/index";
 
     public UserController(UserDao userDao) {
         this.userDao = userDao;
@@ -55,5 +54,14 @@ public class UserController {
             model.addAttribute(ERROR, e.getMessage());
             return signin();
         }
+    }
+
+    @GetMapping({"", "/", "/index", "/index.html"})
+    public String index(HttpServletRequest request, Model model) {
+        if (request.getSession().getAttribute(USER) == null) {
+            return REDIRECT_TO_SIGNIN;
+        }
+        model.addAttribute(USER, request.getSession().getAttribute(USER));
+        return "index";
     }
 }

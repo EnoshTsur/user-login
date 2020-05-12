@@ -9,6 +9,9 @@ public class ControllerUtils {
 
     public static final String USER = "user";
     public static final String ERROR = "error";
+    public final static String REDIRECT_TO_INDEX = "redirect:/user/index";
+    public final static String REDIRECT_TO_SIGNIN = "redirect:/user/signin";
+
 
     private static String missingAttrMessage(String name) {
         return "Missing attribute: " + name;
