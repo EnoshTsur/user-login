@@ -48,10 +48,12 @@ public class UserController {
 
                 return REDIRECT_TO_INDEX;
             }
-            model.addAttribute()
+            model.addAttribute(ERROR, "Invalid email or password");
+            return signin();
 
         } catch (MissingAttributeException | DoesntExistsException e) {
-
+            model.addAttribute(ERROR, e.getMessage());
+            return signin();
         }
     }
 }
