@@ -54,6 +54,8 @@ public class Validator<T> {
      * @param message    error message when object is invalid
      * @return this
      */
+    // user -> user.getFirstName().startsWith("a")
+    // "username must starts with a"
     public Validator<T> validate(Predicate<T> validation, String message) {
         if (!validation.test(obj)) {
             exceptions.add(new IllegalStateException(message));
@@ -72,6 +74,9 @@ public class Validator<T> {
      * @param <U>        see {@link Validator#validate(Function, Predicate, String)}
      * @return this
      */
+    // User::getFirstName
+    // fname -> fname.startsWith("a")
+    // "username must starts with a"
     public <U> Validator<T> validate(Function<T, U> projection, Predicate<U> validation,
                                      String message) {
         return validate(projection.andThen(validation::test)::apply, message);

@@ -1,5 +1,6 @@
 package com.enosh.userlogin.model;
 
+import com.enosh.userlogin.controllers.ControllerUtils;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

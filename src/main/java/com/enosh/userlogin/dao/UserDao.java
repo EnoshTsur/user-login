@@ -5,6 +5,7 @@ import com.enosh.userlogin.model.Address;
 import com.enosh.userlogin.model.User;
 import com.enosh.userlogin.reposirtory.AddressRepository;
 import com.enosh.userlogin.reposirtory.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import static org.apache.commons.codec.digest.DigestUtils.*;
@@ -22,8 +23,8 @@ public class UserDao {
 
     public User save(User user, Address address){
         Address afterSave = addressRepository.save(address);
-        user.setPassword(md5Hex(user.getPassword()).toUpperCase());
         user.setAddress(afterSave);
+        user.setPassword(md5Hex(user.getPassword()).toUpperCase());
         return userRepository.save(user);
     }
 

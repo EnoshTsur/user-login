@@ -7,10 +7,22 @@ import java.util.Optional;
 
 public class ControllerUtils {
 
-    public static final String USER = "user";
-    public static final String ERROR = "error";
-    public final static String REDIRECT_TO_INDEX = "redirect:/user/index";
-    public final static String REDIRECT_TO_SIGNIN = "redirect:/user/signin";
+    // User
+    protected static final String EMAIL = "email";
+    protected static final String PASSWORD = "password";
+    protected static final String FIRST_NAME = "fname";
+    protected static final String LAST_NAME = "lname";
+
+    // Address
+    protected static final String CITY = "city";
+    protected static final String STREET = "street";
+    protected static final String NUMBER = "number";
+
+
+    protected static final String USER = "user";
+    protected static final String ERROR = "error";
+    protected final static String REDIRECT_TO_INDEX = "redirect:/user/index";
+    protected final static String REDIRECT_TO_SIGNIN = "redirect:/user/signin";
 
 
     private static String missingAttrMessage(String name) {
