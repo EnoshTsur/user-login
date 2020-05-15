@@ -6,5 +6,9 @@
 </head>
 <body>
         <h1 th:text="'Hello '+${user.firstName}+'-'+${user.lastName}+'!'"></h1>
+
+        <form method="post" action="/user/logout">
+            <button type="submit">log out</button>
+        </form>
 </body>
 </html>

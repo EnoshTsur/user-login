@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -39,12 +40,12 @@ public class UserController {
 
     // http://enosh.com:8080/user/signin
     @GetMapping("/signin")
-    public String signin(){
+    public String signin() {
         return "login/signin";
     }
 
     @GetMapping("/signup")
-    public String signup(){
+    public String signup() {
         return "login/signup";
     }
 
@@ -71,7 +72,7 @@ public class UserController {
             request.getSession().setAttribute(USER, afterSave);
             return REDIRECT_TO_INDEX;
 
-        } catch (MissingAttributeException | NumberFormatException e){
+        } catch (MissingAttributeException | NumberFormatException e) {
             model.addAttribute(ERROR, e.getMessage());
             return signup();
 
@@ -79,8 +80,8 @@ public class UserController {
             model.addAttribute(
                     ERROR,
                     Stream.of(e.getSuppressed())
-                    .map(Throwable::getMessage)
-                    .collect(Collectors.joining(", "))
+                            .map(Throwable::getMessage)
+                            .collect(Collectors.joining(", "))
             );
             return signup();
         }
@@ -109,6 +110,21 @@ public class UserController {
             model.addAttribute(ERROR, e.getMessage());
             return signin();
         }
+    }
+
+    @PostMapping("/logout")
+    public String logout(HttpServletRequest request, Model model) {
+        String bye = "Bye Bye ";
+        Optional.ofNullable(
+                (User) request.getSession().getAttribute(USER))
+                .ifPresent(user -> {
+                    request.getSession().removeAttribute(USER);
+                    model.addAttribute(
+                            LOGOUT_MESSAGE,
+                            bye + user.getFirstName() + "-" + user.getLastName()
+                    );
+                });
+        return "logout";
     }
 
     @GetMapping({"", "/", "/index", "/index.html"})

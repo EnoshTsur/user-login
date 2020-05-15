@@ -24,6 +24,8 @@ public class ControllerUtils {
     protected final static String REDIRECT_TO_INDEX = "redirect:/user/index";
     protected final static String REDIRECT_TO_SIGNIN = "redirect:/user/signin";
 
+    protected final static String LOGOUT_MESSAGE = "logoutMessage";
+
 
     private static String missingAttrMessage(String name) {
         return "Missing attribute: " + name;
